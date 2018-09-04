@@ -1,8 +1,8 @@
 <!--INÍCIO DO MENU -->
 <div class="col-md-9 col-xs-12">
 
-  <div *ngFor="let item of menuItens" class="menu-item-info-box">
-    <mt-menu-item [menuItem]="item"></mt-menu-item>
+  <div *ngFor="let item of itens | async" class="menu-item-info-box">
+    <mt-menu-item [menuItem]="item" (add)="addMenuItem($event)"></mt-menu-item>
   </div>
 
 </div>

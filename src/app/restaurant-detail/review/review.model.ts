@@ -3,4 +3,5 @@ export interface Review {
     date: string,
     rating: number,
     comments: string
+    restaurantId: string,
 }

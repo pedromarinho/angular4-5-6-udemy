@@ -7,8 +7,8 @@ import 'rxjs/add/observable/throw';
 
 import { Restaurant } from "./restaurant/restaurant.model";
 import { MEAT_API } from "../app.api";
-import { MenuItem } from "../restaurant-detail/menu-item/menu-item.model";
 import { Review } from "../restaurant-detail/review/review.model";
+import { MenuItem } from "../restaurant-detail/menu-item/menu-item.model";
 
 @Injectable()
 export class RestaurantsService {
@@ -26,14 +26,14 @@ export class RestaurantsService {
             .catch(err => Observable.throw(err))
     }
 
-    menuOfRestaurant(restaurantId: string): Observable<MenuItem[]> {
-        return this.http.get(`${MEAT_API}/restaurants/${restaurantId}/menu`)
+    reviewsOfRestaurant(id: string): Observable<Review[]> {
+        return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
             .map(response => response.json())
             .catch(err => Observable.throw(err))
     }
 
-    reviewsOfRestaurant(restaurantId: string): Observable<Review[]> {
-        return this.http.get(`${MEAT_API}/restaurants/${restaurantId}/reviews`)
+    menuOfRestaurant(id: string): Observable<MenuItem[]> {
+        return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
             .map(response => response.json())
             .catch(err => Observable.throw(err))
     }
